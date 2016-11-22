@@ -1,6 +1,7 @@
 #!/usr/bin/env ipython3
 
 from ipyparallel import Client
+import pprint
 
 # See "ipyparallel" directory for sample profile
 rc = Client(profile='mpi')
@@ -40,3 +41,11 @@ def f(x):
 # than object.
 
 struct_array1 = f.map(range(100))
+
+# Output the mean of the 'c' values
+c_values = []
+for e in struct_array1:
+    c_values.append(e[2])
+
+print( "Average value of c is: {}".format( numpy.mean(c_values) ))
+
