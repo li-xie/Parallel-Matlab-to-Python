@@ -1,4 +1,4 @@
-# Setting up ipyparallel @hutch
+# Setting up ipyparallel @hutch (Slurm Version)
 
 ## Setup the Environment
 
@@ -16,15 +16,18 @@ starting the ipyparallel cluster
 
 ## Start the Cluster
 
- - copy the `profile_mpi` directory in this directory to `~/.ipython/`.  This
+ - copy the `profile_slurm` directory in this directory to `~/.ipython/`.  This
    will make the profile available via the `--profile=` option
- - get an allocation from slurm on a rhino: `salloc -n <x>`
  - start the cluster using: 
-   `ipcluster start -n ${SLURM_NTASKS} --profile='mpi'`
+   `ipcluster start -n ${SLURM_NTASKS} --profile='slurm'`
 
-The cluster will be ready when you see the message:
+In this instance, ipyparallel takes over and submits the job to slurm.  You'll
+see a message indicating the job ID.  The cluster will be ready when you see
+the message:
 
     2016-11-22 15:29:20.863 [IPClusterStart] Engines appear to have started successfully
+
+Note that the ipcluster
 
 You can then run the sample script: `./run_sim.py`.  If successful you will get
 a mean of the `c` values
