@@ -9,10 +9,12 @@ module in `/app`- we should also be using the most recent versions of the tools
 Thus, at the moment, it is necessary to configure a few things manually before
 starting the ipyparallel cluster
 
- - `module load python3/3.5.0`
- - `pip3 install --user ipython3`
- - `pip3 install --user ipyparallel`
- - `export PATH=~/.local/bin:${PATH}`
+```
+module load python3/3.5.0
+pip3 install --user ipython3
+pip3 install --user ipyparallel
+export PATH=~/.local/bin:${PATH}
+```
 
 ## Starting the Cluster
 
