@@ -97,13 +97,15 @@ for n in range(1):
         s_all[:,rep] = s
         A_all[:,rep] = A
         p_all[:,rep] = p
+
     # save the data    
-    filename = foldername+"\comm_all"
+    filename = os.path.join( foldername, "comm_all" )
     np.savez(filename,B1_L_all = B1_L_all,B1_beta1_all = B1_beta1_all,B2_L_all = B2_L_all,\
     B1_t_all = B1_t_all,B2_t_all = B2_t_all,A_all = A_all,s_all = s_all,p_all = p_all,\
     parentnum_all = parentnum_all,rseed_all = rseed_all)
+
     rng = random.get_state()
-    filename = foldername+"\\rng"
+    filename = os.path.join( foldername, "rng" )
     with open(filename, 'wb') as myfile:
         pickle.dump(rng, myfile, -1) #HIGHEST_PROTOCOL     
     # sort the data
@@ -149,20 +151,12 @@ for n in range(1):
     parentnum_gen = parentnum_sorted[:gen_counter]
     rseed_gen = rseed_sorted[:gen_counter]
     
-    filename = foldername+"\\comm_gen"
+    filename = os.path.join( foldername, "comm_gen" )
     np.savez(filename,B1_L_gen = B1_L_gen,B1_beta1_gen = B1_beta1_gen,B2_L_gen = B2_L_gen,\
     B1_t_gen = B1_t_gen,B2_t_gen = B2_t_gen,A_gen = A_gen,s_gen = s_gen,p_gen = p_gen,\
     parentnum_gen = parentnum_gen,rseed_gen = rseed_gen) 
 
-filename = "comm_all"
+filename = os.path.join( foldername, "comm_all" )
 np.savez(filename,B1_L_all = B1_L_all,B1_beta1_all = B1_beta1_all,B2_L_all = B2_L_all,\
 B1_t_all = B1_t_all,B2_t_all = B2_t_all,A_all = A_all,s_all = s_all,p_all = p_all,\
 parentnum_all = parentnum_all,rseed_all = rseed_all)
-            
-        
-
-        
-        
-        
-    
-    
